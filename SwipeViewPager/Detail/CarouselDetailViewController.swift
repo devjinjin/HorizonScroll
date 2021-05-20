@@ -90,7 +90,7 @@ class CarouselDetailViewLayout: UICollectionViewFlowLayout {
                 return self.size.equalTo(otherState.size) && self.direction == otherState.direction
             }
         }
-        var visibleOffset : CGFloat =  200 //아이템간의 곂치는 간격
+        var visibleOffset : CGFloat =  110 //아이템간의 곂치는 간격
         var sideItemScale: CGFloat = 0.6
         var sideItemAlpha: CGFloat = 0.6
         var sideItemShift: CGFloat = 0.0
