@@ -1,24 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Carousel View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CarouselViewController" customModule="SwipeViewPager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lBc-df-5cX">
+                                <rect key="frame" x="0.0" y="230" width="414" height="450"/>
+                                <connections>
+                                    <segue destination="Pah-Ut-8Eo" kind="embed" id="uBr-gM-YpH"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="lBc-df-5cX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="186" id="7f8-QZ-UrQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lBc-df-5cX" secondAttribute="trailing" id="S3b-ai-uLp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lBc-df-5cX" secondAttribute="bottom" constant="182" id="VDB-If-95W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="lBc-df-5cX" secondAttribute="leading" id="mTI-Pz-zWg"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-20.289855072463769" y="93.75"/>
+        </scene>
+        <!--Carousel Detail View Controller-->
+        <scene sceneID="tMk-J2-pq1">
+            <objects>
+                <viewController id="Pah-Ut-8Eo" customClass="CarouselDetailViewController" customModule="SwipeViewPager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FvV-od-X7O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZdP-ys-6uE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="450"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewLayout key="collectionViewLayout" id="Dg8-Fb-1Ga" customClass="CarouselDetailViewLayout" customModule="SwipeViewPager"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarouselCell" id="M5A-Uh-S53" customClass="CarouselCell" customModule="SwipeViewPager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="250"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wju-l3-aeI">
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="250"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_movie_1" translatesAutoresizingMaskIntoConstraints="NO" id="Bfz-gD-uhD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="182" height="254"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="Bfz-gD-uhD" secondAttribute="height" multiplier="7:10" constant="-5" id="LMp-QQ-eH7"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Bfz-gD-uhD" secondAttribute="trailing" constant="-2" id="8J1-lr-8dg"/>
+                                                <constraint firstItem="Bfz-gD-uhD" firstAttribute="leading" secondItem="wju-l3-aeI" secondAttribute="leading" id="C0s-T6-gal"/>
+                                                <constraint firstItem="Bfz-gD-uhD" firstAttribute="top" secondItem="wju-l3-aeI" secondAttribute="top" id="qsH-zb-zug"/>
+                                                <constraint firstAttribute="bottom" secondItem="Bfz-gD-uhD" secondAttribute="bottom" constant="-4" id="xlX-Nz-YPP"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="180" height="250"/>
+                                        <connections>
+                                            <outlet property="imgView" destination="Bfz-gD-uhD" id="ayJ-uT-GAR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pah-Ut-8Eo" id="zDE-50-6Nv"/>
+                                    <outlet property="delegate" destination="Pah-Ut-8Eo" id="QhD-sx-DZB"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Ae-JV-QDK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ZdP-ys-6uE" secondAttribute="bottom" id="5XM-DZ-uOK"/>
+                            <constraint firstAttribute="trailing" secondItem="ZdP-ys-6uE" secondAttribute="trailing" id="FjI-hA-Dcg"/>
+                            <constraint firstItem="ZdP-ys-6uE" firstAttribute="top" secondItem="FvV-od-X7O" secondAttribute="top" id="dCe-CE-Ymh"/>
+                            <constraint firstItem="ZdP-ys-6uE" firstAttribute="leading" secondItem="FvV-od-X7O" secondAttribute="leading" id="sva-tP-TUL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="carouselView" destination="ZdP-ys-6uE" id="zG7-c8-ehD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LcZ-u1-E1p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1179" y="82"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_movie_1" width="330" height="471"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
