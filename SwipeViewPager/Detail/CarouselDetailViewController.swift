@@ -20,7 +20,10 @@ class CarouselDetailViewController: UIViewController {
            }
        }
     
-    let images = [UIImage(named: "essential_card_L"), UIImage(named: "professional_card_L"), UIImage(named: "highend_card_L"), UIImage(named: "performance_card_L")]
+    let items = [CarouselItem(image: UIImage(named: "essential_card_L"), title: "첫번째") ,
+                  CarouselItem(image: UIImage(named: "professional_card_L"), title: "두번째"),
+                  CarouselItem(image: UIImage(named: "highend_card_L"), title: "세번째"),
+                  CarouselItem(image: UIImage(named: "performance_card_L"), title: "네번째")]
     var selectedIndex = 0
     
     var pageSize: CGSize {
@@ -42,8 +45,8 @@ class CarouselDetailViewController: UIViewController {
 
         //horizon scroll 기본 세팅값
         if let layout = carouselCollectionViewLayout {
-            let itemWidth = view.bounds.width
-            let itemHeight = itemWidth * 0.72
+            let itemWidth = 180//view.bounds.width
+            let itemHeight = 250//itemWidth * 0.72
             layout.scrollDirection = .horizontal // 고정값
             layout.itemSize =  CGSize(width: itemWidth, height: itemHeight) //아이템크기
         }
@@ -54,7 +57,7 @@ extension CarouselDetailViewController : UICollectionViewDelegate, UICollectionV
 {
        
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -62,16 +65,33 @@ extension CarouselDetailViewController : UICollectionViewDelegate, UICollectionV
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCell", for: indexPath) as? CarouselCell else {
             return UICollectionViewCell()
         }
-        guard let image = images[indexPath.row] else {
+        guard let itemImage = items[indexPath.row].image else {
             return UICollectionViewCell()
         }
         
-        cell.updateUI(image)
+        cell.updateUI(itemImage)
         return cell
     }
     
-}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "CarouselAlertViewController") as! CarouselAlertViewController
+        
+        vc.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        vc.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
 
+        vc.item = item
+        present(vc, animated: true, completion: nil)
+
+    }
+    
+}
+struct CarouselItem {
+    var image : UIImage?
+    var title : String
+}
 //Cell 아이템 클래스
 class CarouselCell: UICollectionViewCell {
 

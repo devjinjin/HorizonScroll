@@ -33,10 +33,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="lBc-df-5cX" secondAttribute="leading" id="mTI-Pz-zWg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="jmi-1j-FXp" kind="show" identifier="CauouselAlert" id="ITe-Pe-x8d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-20.289855072463769" y="93.75"/>
+            <point key="canvasLocation" x="-61" y="414"/>
         </scene>
         <!--Carousel Detail View Controller-->
         <scene sceneID="tMk-J2-pq1">
@@ -101,8 +104,99 @@
             </objects>
             <point key="canvasLocation" x="1179" y="82"/>
         </scene>
+        <!--Carousel Alert View Controller-->
+        <scene sceneID="vp6-Qy-gmb">
+            <objects>
+                <viewController storyboardIdentifier="CarouselAlertViewController" id="jmi-1j-FXp" customClass="CarouselAlertViewController" customModule="SwipeViewPager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Y6-4o-e8N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ik-SY-EVC" userLabel="DimmerView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akS-Z4-mF0" customClass="RounedCornerView" customModule="SwipeViewPager" customModuleProvider="target">
+                                <rect key="frame" x="117" y="279" width="180" height="250"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_extra_card_group" translatesAutoresizingMaskIntoConstraints="NO" id="28d-KS-roM">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="250"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXTRA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdQ-IB-ZIu">
+                                        <rect key="frame" x="60.5" y="15" width="59" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 상품은 추가 결제 상품입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQv-b1-Mpi" userLabel="ContentText">
+                                        <rect key="frame" x="23.5" y="54" width="133" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="유효기간이 경과하면 해당 상품은 자동 소멸되며, 이월은 불가합니다" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKX-9A-DHy">
+                                        <rect key="frame" x="8" y="74" width="164" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PdQ-IB-ZIu" firstAttribute="centerX" secondItem="akS-Z4-mF0" secondAttribute="centerX" id="48h-1m-pwr"/>
+                                    <constraint firstAttribute="height" constant="250" id="4O1-i3-5f7"/>
+                                    <constraint firstAttribute="width" constant="180" id="7iy-Om-COc"/>
+                                    <constraint firstItem="PdQ-IB-ZIu" firstAttribute="top" secondItem="akS-Z4-mF0" secondAttribute="top" constant="15" id="C14-Fc-7Kj"/>
+                                    <constraint firstItem="cKX-9A-DHy" firstAttribute="top" secondItem="zQv-b1-Mpi" secondAttribute="bottom" constant="8" symbolic="YES" id="LeC-yW-MlE"/>
+                                    <constraint firstAttribute="trailing" secondItem="cKX-9A-DHy" secondAttribute="trailing" constant="8" id="MDL-jp-1Rf"/>
+                                    <constraint firstItem="28d-KS-roM" firstAttribute="leading" secondItem="akS-Z4-mF0" secondAttribute="leading" id="NJ4-Ih-EKV"/>
+                                    <constraint firstAttribute="trailing" secondItem="28d-KS-roM" secondAttribute="trailing" id="ODC-cY-to2"/>
+                                    <constraint firstItem="zQv-b1-Mpi" firstAttribute="top" secondItem="PdQ-IB-ZIu" secondAttribute="bottom" constant="16" id="SXU-vK-yaK"/>
+                                    <constraint firstItem="28d-KS-roM" firstAttribute="top" secondItem="akS-Z4-mF0" secondAttribute="top" id="egH-RQ-ZpA"/>
+                                    <constraint firstItem="zQv-b1-Mpi" firstAttribute="centerX" secondItem="akS-Z4-mF0" secondAttribute="centerX" id="fru-KI-lok"/>
+                                    <constraint firstAttribute="bottom" secondItem="28d-KS-roM" secondAttribute="bottom" id="gjf-Cg-9Hc"/>
+                                    <constraint firstItem="cKX-9A-DHy" firstAttribute="leading" secondItem="akS-Z4-mF0" secondAttribute="leading" constant="8" id="h0x-uE-mcR"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8Ul-np-ZED"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7ik-SY-EVC" firstAttribute="bottom" secondItem="8Ul-np-ZED" secondAttribute="bottom" constant="34" id="9QI-BF-Uyb"/>
+                            <constraint firstItem="7ik-SY-EVC" firstAttribute="leading" secondItem="8Ul-np-ZED" secondAttribute="leading" id="QJ4-Ke-Ukg"/>
+                            <constraint firstItem="7ik-SY-EVC" firstAttribute="top" secondItem="8Ul-np-ZED" secondAttribute="top" id="ccJ-n3-GnM"/>
+                            <constraint firstItem="akS-Z4-mF0" firstAttribute="centerX" secondItem="8Ul-np-ZED" secondAttribute="centerX" id="fYq-MM-5Na"/>
+                            <constraint firstItem="akS-Z4-mF0" firstAttribute="centerY" secondItem="8Ul-np-ZED" secondAttribute="centerY" id="iFG-tL-ddA"/>
+                            <constraint firstItem="8Ul-np-ZED" firstAttribute="trailing" secondItem="7ik-SY-EVC" secondAttribute="trailing" id="iU1-bc-cKE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Vh3-SY-uZ3"/>
+                    <connections>
+                        <outlet property="dimmerView" destination="7ik-SY-EVC" id="EfS-qD-XFJ"/>
+                        <outlet property="itemDescription" destination="zQv-b1-Mpi" id="uxu-UW-p2g"/>
+                        <outlet property="itemDetailDescription" destination="cKX-9A-DHy" id="fak-lG-bFP"/>
+                        <outlet property="itemTitle" destination="PdQ-IB-ZIu" id="5s9-Xv-eLT"/>
+                        <outlet property="roundView" destination="akS-Z4-mF0" id="V17-nR-Q6h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Gk-ud-Fkt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1179.7101449275362" y="624.77678571428567"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="back_extra_card_group" width="214" height="284"/>
         <image name="img_movie_1" width="330" height="471"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
